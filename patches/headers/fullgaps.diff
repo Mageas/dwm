@@ -1,1 +1,4 @@
-Version: dwm-fullgaps-20200508-7b77734.diff
+Version: https://dwm.suckless.org/patches/fullgaps/dwm-fullgaps-20200508-7b77734.diff
+
+Notes:
+ * Remove 'setgaps' function

@@ -1,4 +1,4 @@
-Version: dwm-warp-6.2.diff
+Version: https://dwm.suckless.org/patches/warp/dwm-warp-6.2.diff
 --- a/dwm.c
 +++ b/dwm.c
 @@ -228,6 +228,7 @@ static void updatetitle(Client *c);

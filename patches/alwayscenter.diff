@@ -1,4 +1,4 @@
-Version: dwm-alwayscenter-20200625-f04cac6.diff
+Version: https://dwm.suckless.org/patches/alwayscenter/dwm-alwayscenter-20200625-f04cac6.diff
 --- a/dwm.c
 +++ b/dwm.c
 @@ -1057,6 +1057,8 @@ manage(Window w, XWindowAttributes *wa)

@@ -1,1 +1,4 @@
-Version: dwm-focusonclick-20200110-61bb8b2.diff
+Version: https://dwm.suckless.org/patches/focusonclick/dwm-focusonclick-20200110-61bb8b2.diff
+
+Notes:
+ * Correct a bug where floating window cannot be moved.

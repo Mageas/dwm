@@ -1,6 +1,8 @@
-The only file where config.def.h is changed
+Notes:
+All my configuration is in this file
 
-patches in here:
-fakefullscreen
-focusonclick
-fullgaps
+Configuration of the following patches:
+ * fakefullscreen
+ * focusonclick
+ * fullgaps
+ * movestack

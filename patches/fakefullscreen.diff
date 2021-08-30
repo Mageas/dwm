@@ -1,4 +1,4 @@
-Version: dwm-fakefullscreen-20210714-138b405.diff
+Version: https://dwm.suckless.org/patches/fakefullscreen/dwm-fakefullscreen-20210714-138b405.diff
 --- a/dwm.c
 +++ b/dwm.c
 @@ -522,7 +522,7 @@ clientmessage(XEvent *e)

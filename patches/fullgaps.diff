@@ -1,4 +1,7 @@
-Version: dwm-fullgaps-20200508-7b77734.diff
+Version: https://dwm.suckless.org/patches/fullgaps/dwm-fullgaps-20200508-7b77734.diff
+
+Notes:
+ * Remove 'setgaps' function
 --- a/dwm.c
 +++ b/dwm.c
 @@ -119,6 +119,7 @@ struct Monitor {
