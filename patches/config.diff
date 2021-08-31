@@ -8,7 +8,7 @@ Configuration of the following patches:
  * movestack
 --- a/config.def.h
 +++ b/config.def.h
-@@ -1,116 +1,140 @@
+@@ -1,116 +1,128 @@
  /* See LICENSE file for copyright and license details. */
  
  /* appearance */
@@ -158,18 +158,11 @@ Configuration of the following patches:
 +    // DWM
 +    { MODKEY|ShiftMask,             XK_Escape,       quit,           {0} },
 +    { MODKEY|ControlMask,           XK_Return,       zoom,           {0} },
++    // DWM KEYBINDINGS
 +    { MODKEY|ShiftMask,             XK_l,            spawn,          SHCMD("slock") },
-+    // CUSTOM SCRIPTS
-+    { MODKEY|ControlMask,           XK_F1,           spawn,          SHCMD("dm-screenshot") },
-+    { MODKEY|ControlMask,           XK_F2,           spawn,          SHCMD("dm-videos") },
-+    { MODKEY,                       XK_F9,           spawn,          SHCMD("dm-mount") },
-+    { MODKEY,                       XK_F10,          spawn,          SHCMD("dm-umount") },
-+    { MODKEY,                       XK_F12,          spawn,          SHCMD("dm-shutdown") },
-+    // SPAWN APPLICATIONS
 +    { MODKEY,                       XK_d,            spawn,          SHCMD("dmenu_run -i") },
 +    { MODKEY,                       XK_Return,       spawn,          SHCMD("alacritty") },
-+    { MODKEY,                       XK_e,            spawn,          SHCMD("alacritty -e \"ranger\"") },
-+    // WINDOW WIDTH
++    // FACTOR 
 +    { MODKEY,                       XK_l,            setmfact,       {.f = +0.05} },
 +    { MODKEY,                       XK_h,            setmfact,       {.f = -0.05} },
 +    // MASTER/STACK
@@ -182,7 +175,6 @@ Configuration of the following patches:
 +    { MODKEY|ShiftMask,             XK_k,            movestack,      {.i = -1 } },
 +    // LAYOUTS
 +    { MODKEY,                       XK_t,            setlayout,      {.v = &layouts[0]} },
-+    { MODKEY,                       XK_f,            setlayout,      {.v = &layouts[1]} },
 +    { MODKEY,                       XK_m,            setlayout,      {.v = &layouts[2]} },
 +    { MODKEY|ShiftMask,             XK_space,        setlayout,      {0} },
 +    { MODKEY,                       XK_space,        togglefloating, {0} },
@@ -193,10 +185,6 @@ Configuration of the following patches:
 +    { MODKEY|ShiftMask,             XK_period,       tagmon,         {.i = +1 } },
 +    // BAR
 +    { MODKEY,                       XK_b,            togglebar,      {0} },
-+    // VOLUME
-+    { MODKEY,                       XK_F1,           spawn,          SHCMD("dwm-volume toggle; kill -44 $(pidof dwmblocks)") }, /* XF86XK_AudioMute */
-+    { MODKEY,                       XK_F2,           spawn,          SHCMD("dwm-volume set=-2%; kill -44 $(pidof dwmblocks)") }, /* XF86XK_AudioLowerVolume */
-+    { MODKEY,                       XK_F3,           spawn,          SHCMD("dwm-volume set=+2%; kill -44 $(pidof dwmblocks)") }, /* XF86XK_AudioRaiseVolume */
  };
  
  /* button definitions */
