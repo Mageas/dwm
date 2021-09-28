@@ -10,7 +10,7 @@ Configuration of the following patches:
 +++ b/config.def.h
 @@ -1,116 +1,128 @@
  /* See LICENSE file for copyright and license details. */
- 
+
  /* appearance */
 -static const unsigned int borderpx  = 1;        /* border pixel of windows */
 +static const unsigned int borderpx  = 3;        /* border pixel of windows */
@@ -42,10 +42,10 @@ Configuration of the following patches:
 +    [SchemeNorm]        = { col_fg_unfocused,   col_bg_unfocused,   col_bd_unfocused },
 +    [SchemeSel]         = { col_fg_focused,     col_bg_focused,     col_bd_focused  },
  };
- 
+
  /* tagging */
  static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
- 
+
  static const Rule rules[] = {
 -	/* xprop(1):
 -	 *	WM_CLASS(STRING) = instance, class
@@ -65,14 +65,14 @@ Configuration of the following patches:
 +    { "Pavucontrol",    NULL,          NULL,        0,            1,           -1 }, // Pavucontrol
 +    { "Tor Browser",    NULL,          NULL,        0,            1,           -1 }, // Tor browser
  };
- 
+
  /* layout(s) */
  static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
  static const int nmaster     = 1;    /* number of clients in master area */
  static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 -static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 +static const int lockfullscreen = 0; /* 1 will force focus on the fullscreen window */
- 
+
  static const Layout layouts[] = {
 -	/* symbol     arrange function */
 -	{ "[]=",      tile },    /* first entry is default */
@@ -83,7 +83,7 @@ Configuration of the following patches:
 +    { "><>",      NULL },    /* no layout function means floating behavior */
 +    { "[M]",      monocle },
  };
- 
+
  /* key definitions */
 -#define MODKEY Mod1Mask
 +#define MODKEY Mod4Mask
@@ -96,10 +96,10 @@ Configuration of the following patches:
 +    { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 +    { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 +    { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
- 
+
  /* helper for spawning shell commands in the pre dwm-5.0 fashion */
  #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
- 
+
 -/* commands */
 -static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 -static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
@@ -162,7 +162,7 @@ Configuration of the following patches:
 +    { MODKEY|ShiftMask,             XK_l,            spawn,          SHCMD("slock") },
 +    { MODKEY,                       XK_d,            spawn,          SHCMD("dmenu_run -i") },
 +    { MODKEY,                       XK_Return,       spawn,          SHCMD("alacritty") },
-+    // FACTOR 
++    // FACTOR
 +    { MODKEY,                       XK_l,            setmfact,       {.f = +0.05} },
 +    { MODKEY,                       XK_h,            setmfact,       {.f = -0.05} },
 +    // MASTER/STACK
@@ -186,7 +186,7 @@ Configuration of the following patches:
 +    // BAR
 +    { MODKEY,                       XK_b,            togglebar,      {0} },
  };
- 
+
  /* button definitions */
  /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
  static Button buttons[] = {
@@ -215,7 +215,7 @@ Configuration of the following patches:
 +    { ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 +    { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
- 
+
 --- a/dwm.c
 +++ b/dwm.c
 @@ -1640,8 +1640,6 @@ sigchld(int unused)
