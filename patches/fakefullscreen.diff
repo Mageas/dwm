@@ -1,4 +1,8 @@
 Version: https://dwm.suckless.org/patches/fakefullscreen/dwm-fakefullscreen-20210714-138b405.diff
+
+Notes:
+ * Fix truncated window bug that requires the user to update the screen.
+
 --- a/dwm.c
 +++ b/dwm.c
 @@ -522,7 +522,7 @@ clientmessage(XEvent *e)
@@ -46,7 +50,7 @@ Version: https://dwm.suckless.org/patches/fakefullscreen/dwm-fakefullscreen-2021
  	restack(selmon);
  	ocx = c->x;
  	ocy = c->y;
-@@ -1477,24 +1469,10 @@ setfullscreen(Client *c, int fullscreen)
+@@ -1477,24 +1469,12 @@ setfullscreen(Client *c, int fullscreen)
  		XChangeProperty(dpy, c->win, netatom[NetWMState], XA_ATOM, 32,
  			PropModeReplace, (unsigned char*)&netatom[NetWMFullscreen], 1);
  		c->isfullscreen = 1;
@@ -56,6 +60,7 @@ Version: https://dwm.suckless.org/patches/fakefullscreen/dwm-fakefullscreen-2021
 -		c->isfloating = 1;
 -		resizeclient(c, c->mon->mx, c->mon->my, c->mon->mw, c->mon->mh);
 -		XRaiseWindow(dpy, c->win);
++        resizeclient(c, c->x, c->y, c->w, c->h);
  	} else if (!fullscreen && c->isfullscreen){
  		XChangeProperty(dpy, c->win, netatom[NetWMState], XA_ATOM, 32,
  			PropModeReplace, (unsigned char*)0, 0);
@@ -68,10 +73,11 @@ Version: https://dwm.suckless.org/patches/fakefullscreen/dwm-fakefullscreen-2021
 -		c->h = c->oldh;
 -		resizeclient(c, c->x, c->y, c->w, c->h);
 -		arrange(c->mon);
++        resizeclient(c, c->x, c->y, c->w, c->h);
  	}
  }
  
-@@ -1619,7 +1597,7 @@ showhide(Client *c)
+@@ -1619,7 +1599,7 @@ showhide(Client *c)
  	if (ISVISIBLE(c)) {
  		/* show clients top down */
  		XMoveWindow(dpy, c->win, c->x, c->y);
@@ -80,7 +86,7 @@ Version: https://dwm.suckless.org/patches/fakefullscreen/dwm-fakefullscreen-2021
  			resize(c, c->x, c->y, c->w, c->h, 0);
  		showhide(c->snext);
  	} else {
-@@ -1713,8 +1691,6 @@ togglefloating(const Arg *arg)
+@@ -1713,8 +1693,6 @@ togglefloating(const Arg *arg)
  {
  	if (!selmon->sel)
  		return;
