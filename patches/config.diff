@@ -8,7 +8,7 @@ Configuration of the following patches:
  * movestack
 --- a/config.def.h
 +++ b/config.def.h
-@@ -1,116 +1,128 @@
+@@ -1,116 +1,127 @@
  /* See LICENSE file for copyright and license details. */
 
  /* appearance */
@@ -58,12 +58,11 @@ Configuration of the following patches:
 +     *	WM_CLASS(STRING) = instance, class
 +     *	WM_NAME(STRING) = title
 +     */
-+    /* class      instance    title       tags mask     isfloating   monitor */
-+    { "LibreWolf",      NULL,          NULL,        1,            0,           1 },  // Librewolf
-+    { "discord",        NULL,          NULL,        1,            0,           0 },  // Discord
-+    { "code-oss",       NULL,          NULL,        1 << 1,       0,           1 },  // VSCode
-+    { "Pavucontrol",    NULL,          NULL,        0,            1,           -1 }, // Pavucontrol
-+    { "Tor Browser",    NULL,          NULL,        0,            1,           -1 }, // Tor browser
++    /* class            instance       title        tags mask     isfloating   monitor */
++    { "Brave-browser",  NULL,          NULL,        1,            0,           1 },
++    { "discord",        NULL,          NULL,        1,            0,           0 },
++    { "Pavucontrol",    NULL,          NULL,        0,            1,           -1 },
++    { "Tor Browser",    NULL,          NULL,        0,            1,           -1 },
  };
 
  /* layout(s) */
