@@ -15,7 +15,7 @@ Version: https://dwm.suckless.org/patches/warp/dwm-warp-6.2.diff
  	focus(NULL);
 +	warp(selmon->sel);
  }
- 
+
  void
 @@ -1368,6 +1370,8 @@ restack(Monitor *m)
  	}
@@ -24,12 +24,12 @@ Version: https://dwm.suckless.org/patches/warp/dwm-warp-6.2.diff
 +	if (m == selmon && (m->tagset[m->seltags] & m->sel->tags) && selmon->lt[selmon->sellt] != &layouts[2])
 +		warp(m->sel);
  }
- 
+
  void
 @@ -2047,6 +2051,28 @@ view(const Arg *arg)
  	arrange(selmon);
  }
- 
+
 +void
 +warp(const Client *c)
 +{

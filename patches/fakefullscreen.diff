@@ -21,7 +21,7 @@ Notes:
 -	Client *c;
  	XConfigureEvent *ev = &e->xconfigure;
  	int dirty;
- 
+
 @@ -565,9 +564,6 @@ configurenotify(XEvent *e)
  			drw_resize(drw, sw, bh);
  			updatebars();
@@ -33,7 +33,7 @@ Notes:
  			}
  			focus(NULL);
 @@ -1144,8 +1140,6 @@ movemouse(const Arg *arg)
- 
+
  	if (!(c = selmon->sel))
  		return;
 -	if (c->isfullscreen) /* no support moving fullscreen windows by mouse */
@@ -42,7 +42,7 @@ Notes:
  	ocx = c->x;
  	ocy = c->y;
 @@ -1299,8 +1293,6 @@ resizemouse(const Arg *arg)
- 
+
  	if (!(c = selmon->sel))
  		return;
 -	if (c->isfullscreen) /* no support resizing fullscreen windows by mouse */
@@ -76,7 +76,7 @@ Notes:
 +        resizeclient(c, c->x, c->y, c->w, c->h);
  	}
  }
- 
+
 @@ -1619,7 +1599,7 @@ showhide(Client *c)
  	if (ISVISIBLE(c)) {
  		/* show clients top down */

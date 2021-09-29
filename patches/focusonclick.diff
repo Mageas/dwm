@@ -35,7 +35,7 @@ Notes:
  	[UnmapNotify] = unmapnotify
  };
 @@ -425,7 +421,8 @@ buttonpress(XEvent *e)
- 
+
  	click = ClkRootWin;
  	/* focus monitor if necessary */
 -	if ((m = wintomon(ev->window)) && m != selmon) {
@@ -58,7 +58,7 @@ Notes:
 @@ -752,25 +749,6 @@ drawbars(void)
  		drawbar(m);
  }
- 
+
 -void
 -enternotify(XEvent *e)
 -{
@@ -89,11 +89,11 @@ Notes:
 +						GrabModeAsync, GrabModeAsync, None, None);
  	}
  }
- 
+
 @@ -1116,23 +1094,6 @@ monocle(Monitor *m)
  		resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw, 0);
  }
- 
+
 -void
 -motionnotify(XEvent *e)
 -{
