@@ -159,7 +159,7 @@ Configuration of the following patches:
 +    { MODKEY|ControlMask,           XK_Return,       zoom,           {0} },
 +    // DWM KEYBINDINGS
 +    { MODKEY|ShiftMask,             XK_l,            spawn,          SHCMD("slock") },
-+    { MODKEY,                       XK_d,            spawn,          SHCMD("dmenu_run -i") },
++    { MODKEY,                       XK_d,            spawn,          SHCMD("dmenu_run -i -hp virt-manager") },
 +    { MODKEY,                       XK_Return,       spawn,          SHCMD("alacritty") },
 +    // FACTOR
 +    { MODKEY,                       XK_l,            setmfact,       {.f = +0.05} },
