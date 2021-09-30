@@ -174,7 +174,7 @@ Configuration of the following patches:
 +    { MODKEY|ShiftMask,             XK_k,            movestack,      {.i = -1 } },
 +    // LAYOUTS
 +    { MODKEY,                       XK_t,            setlayout,      {.v = &layouts[0]} },
-+    { MODKEY,                       XK_m,            setlayout,      {.v = &layouts[2]} },
++    { MODKEY,                       XK_m,            setlayout,      {.v = &layouts[1]} },
 +    { MODKEY|ShiftMask,             XK_space,        setlayout,      {0} },
 +    { MODKEY,                       XK_space,        togglefloating, {0} },
 +    // MONITORS
