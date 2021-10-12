@@ -59,7 +59,7 @@ Configuration of the following patches:
 +     *	WM_NAME(STRING) = title
 +     */
 +    /* class            instance       title        tags mask     isfloating   monitor */
-+    { "Brave-browser",  NULL,          NULL,        1,            0,           1 },
++    { "firefox",        NULL,          NULL,        1,            0,           1 },
 +    { "discord",        NULL,          NULL,        1,            0,           0 },
 +    { "Pavucontrol",    NULL,          NULL,        0,            1,           -1 },
 +    { "Tor Browser",    NULL,          NULL,        0,            1,           -1 },
