@@ -1,7 +1,10 @@
-Version: https://dwm.suckless.org/patches/focusonclick/dwm-focusonclick-20200110-61bb8b2.diff
+Base patch:
+* https://dwm.suckless.org/patches/focusonclick/dwm-focusonclick-20200110-61bb8b2.diff
 
-Notes:
- * Correct a bug where floating window cannot be moved.
+Changelog:
+* Remove focusonwheel variable
+* Fix move floating window
+
 --- a/dwm.c
 +++ b/dwm.c
 @@ -163,7 +163,6 @@ static void detachstack(Client *c);
@@ -40,7 +43,7 @@ Notes:
  	/* focus monitor if necessary */
 -	if ((m = wintomon(ev->window)) && m != selmon) {
 +	if ((m = wintomon(ev->window)) && m != selmon
-+	    && (focusonwheel || (ev->button != Button4 && ev->button != Button5))) {
++	    && (ev->button != Button4 && ev->button != Button5)) {
  		unfocus(selmon->sel, 1);
  		selmon = m;
  		focus(NULL);
@@ -50,7 +53,7 @@ Notes:
  	} else if ((c = wintoclient(ev->window))) {
 -		focus(c);
 -		restack(selmon);
-+		if (focusonwheel || (ev->button != Button4 && ev->button != Button5))
++		if (ev->button != Button4 && ev->button != Button5)
 +			focus(c);
  		XAllowEvents(dpy, ReplayPointer, CurrentTime);
  		click = ClkClientWin;
