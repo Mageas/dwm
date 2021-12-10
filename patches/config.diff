@@ -1,19 +1,12 @@
-Notes:
-All my configuration is in this file
 
-Configuration of the following patches:
- * fakefullscreen
- * focusonclick
- * fullgaps
- * movestack
 --- a/config.def.h
 +++ b/config.def.h
-@@ -1,116 +1,127 @@
+@@ -1,116 +1,133 @@
  /* See LICENSE file for copyright and license details. */
 
  /* appearance */
 -static const unsigned int borderpx  = 1;        /* border pixel of windows */
-+static const unsigned int borderpx  = 3;        /* border pixel of windows */
++static const unsigned int borderpx  = 2;        /* border pixel of windows */
 +static const unsigned int gappx     = 10;       /* gaps between windows */
  static const unsigned int snap      = 32;       /* snap pixel */
  static const int showbar            = 1;        /* 0 means no bar */
@@ -25,15 +18,16 @@ Configuration of the following patches:
 -static const char col_gray3[]       = "#bbbbbb";
 -static const char col_gray4[]       = "#eeeeee";
 -static const char col_cyan[]        = "#005577";
-+static const int focusonwheel       = 0;
-+static const char *fonts[]          = { "FreeMono:style=Regular:size=12", "Hack Nerd Font:style=Regular:size=10" };
-+static const char dmenufont[]       = "FreeMono:style=Regular:size=12";
-+static const char col_bg_focused[]    = "#ffb86c"; // Background focused
-+static const char col_bg_unfocused[]  = "#44475a"; // Background unfocused
++static const char *fonts[]          = { "Source Code Pro:style=Medium:size=11", "Hack Nerd Font Mono:style=Regular:size=14" };
++static const char dmenufont[]       = "Source Code Pro:style=Medium:size=9";
++static const int barh               = 0;         /* vertical padding for statusbar */
++static const int statusbarh         = 69;        /* statusbar height, it will center automatically (Bigger number than the bar to remove the effect) */
++static const char col_bg_focused[]    = "#51afef"; // Background focused
++static const char col_bg_unfocused[]  = "#282a36"; // Background unfocused
 +static const char col_fg_focused[]    = "#282a36"; // Foreground focused
 +static const char col_fg_unfocused[]  = "#bdcaf0"; // Foreground unfocused
-+static const char col_bd_focused[]    = "#ffb86c"; // Border focused
-+static const char col_bd_unfocused[]  = "#44475a"; // Border unfocused
++static const char col_bd_focused[]    = "#51afef"; // Border focused
++static const char col_bd_unfocused[]  = "#a9a1e1"; // Border unfocused
  static const char *colors[][3]      = {
 -	/*               fg         bg         border   */
 -	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -41,6 +35,11 @@ Configuration of the following patches:
 +    /*                    fg                    bg                  border   */
 +    [SchemeNorm]        = { col_fg_unfocused,   col_bg_unfocused,   col_bd_unfocused },
 +    [SchemeSel]         = { col_fg_focused,     col_bg_focused,     col_bd_focused  },
++    [SchemeStatus]      = { col_bg_unfocused,   col_bg_unfocused,   "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
++    [SchemeTagsSel]     = { col_fg_focused,     col_bg_focused,     "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
++    [SchemeTagsNorm]    = { col_fg_unfocused,   col_bg_unfocused,   "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
++    [SchemeInfoSel]     = { col_bg_unfocused,   col_bg_unfocused,   "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
++    [SchemeInfoNorm]    = { col_bg_unfocused,   col_bg_unfocused,   "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
  };
 
  /* tagging */
@@ -139,7 +138,7 @@ Configuration of the following patches:
 -	TAGKEYS(                        XK_8,                      7)
 -	TAGKEYS(                        XK_9,                      8)
 -	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-+    /* modifier                     key        function        argument */
++    /* modifier                     key              function        argument */
 +    // TAGS
 +    TAGKEYS(                        XK_1,                            0)
 +    TAGKEYS(                        XK_2,                            1)

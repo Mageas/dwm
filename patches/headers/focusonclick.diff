@@ -1,4 +1,6 @@
-Version: https://dwm.suckless.org/patches/focusonclick/dwm-focusonclick-20200110-61bb8b2.diff
+Base patch:
+* https://dwm.suckless.org/patches/focusonclick/dwm-focusonclick-20200110-61bb8b2.diff
 
-Notes:
- * Correct a bug where floating window cannot be moved.
+Changelog:
+* Remove focusonwheel variable
+* Fix move floating window

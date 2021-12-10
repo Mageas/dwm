@@ -1,7 +1,8 @@
-Version: https://dwm.suckless.org/patches/fakefullscreen/dwm-fakefullscreen-20210714-138b405.diff
+Base patch:
+* https://dwm.suckless.org/patches/fakefullscreen/dwm-fakefullscreen-20210714-138b405.diff
 
-Notes:
- * Fix truncated window bug that requires the user to update the screen.
+Changelog:
+* Fix truncated window bug that requires the user to update the screen.
 
 --- a/dwm.c
 +++ b/dwm.c
