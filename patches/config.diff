@@ -217,7 +217,7 @@
 
 --- a/dwm.c
 +++ b/dwm.c
-@@ -1643,8 +1643,6 @@ sigchld(int unused)
+@@ -1644,8 +1644,6 @@ sigchld(int unused)
  void
  spawn(const Arg *arg)
  {

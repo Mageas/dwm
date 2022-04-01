@@ -3,7 +3,7 @@ Base patch:
 
 --- a/dwm.c
 +++ b/dwm.c
-@@ -1060,6 +1060,8 @@ manage(Window w, XWindowAttributes *wa)
+@@ -1061,6 +1061,8 @@ manage(Window w, XWindowAttributes *wa)
  	updatewindowtype(c);
  	updatesizehints(c);
  	updatewmhints(c);
