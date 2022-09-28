@@ -22,7 +22,7 @@ Changelog:
 -static void motionnotify(XEvent *e);
  static void movemouse(const Arg *arg);
  static Client *nexttiled(Client *c);
- static void pop(Client *);
+ static void pop(Client *c);
 @@ -250,13 +248,11 @@ static void (*handler[LASTEvent]) (XEvent *) = {
  	[ConfigureRequest] = configurerequest,
  	[ConfigureNotify] = configurenotify,
@@ -37,7 +37,7 @@ Changelog:
  	[PropertyNotify] = propertynotify,
  	[UnmapNotify] = unmapnotify
  };
-@@ -425,7 +421,8 @@ buttonpress(XEvent *e)
+@@ -427,7 +423,8 @@ buttonpress(XEvent *e)
 
  	click = ClkRootWin;
  	/* focus monitor if necessary */
@@ -47,7 +47,7 @@ Changelog:
  		unfocus(selmon->sel, 1);
  		selmon = m;
  		focus(NULL);
-@@ -445,8 +442,8 @@ buttonpress(XEvent *e)
+@@ -447,8 +444,8 @@ buttonpress(XEvent *e)
  		else
  			click = ClkWinTitle;
  	} else if ((c = wintoclient(ev->window))) {
@@ -58,7 +58,7 @@ Changelog:
  		XAllowEvents(dpy, ReplayPointer, CurrentTime);
  		click = ClkClientWin;
  	}
-@@ -756,25 +753,6 @@ drawbars(void)
+@@ -758,25 +755,6 @@ drawbars(void)
  		drawbar(m);
  }
 
@@ -93,7 +93,7 @@ Changelog:
  	}
  }
 
-@@ -1120,23 +1098,6 @@ monocle(Monitor *m)
+@@ -1116,23 +1094,6 @@ monocle(Monitor *m)
  		resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw, 0);
  }
 

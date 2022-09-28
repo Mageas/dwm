@@ -28,7 +28,7 @@ Move the configuration below to your config.diff
  	unsigned int seltags;
  	unsigned int sellt;
  	unsigned int tagset[2];
-@@ -640,6 +641,7 @@ createmon(void)
+@@ -642,6 +643,7 @@ createmon(void)
  	m->nmaster = nmaster;
  	m->showbar = showbar;
  	m->topbar = topbar;
@@ -36,7 +36,7 @@ Move the configuration below to your config.diff
  	m->lt[0] = &layouts[0];
  	m->lt[1] = &layouts[1 % LENGTH(layouts)];
  	strncpy(m->ltsymbol, layouts[0].symbol, sizeof m->ltsymbol);
-@@ -1688,18 +1690,18 @@ tile(Monitor *m)
+@@ -1679,18 +1681,18 @@ tile(Monitor *m)
  	if (n > m->nmaster)
  		mw = m->nmaster ? m->ww * m->mfact : 0;
  	else
