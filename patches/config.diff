@@ -1,7 +1,7 @@
 
 --- a/config.def.h
 +++ b/config.def.h
-@@ -1,115 +1,135 @@
+@@ -1,115 +1,131 @@
  /* See LICENSE file for copyright and license details. */
 
  /* appearance */
@@ -156,10 +156,6 @@
 +    // DWM
 +    { MODKEY|ShiftMask,             XK_Escape,       quit,           {0} },
 +    { MODKEY|ControlMask,           XK_Return,       zoom,           {0} },
-+    // DWM KEYBINDINGS
-+    { MODKEY|ShiftMask,             XK_l,            spawn,          SHCMD("slock") },
-+    { MODKEY,                       XK_d,            spawn,          SHCMD("dmenu_run -i -hp virt-manager") },
-+    { MODKEY,                       XK_Return,       spawn,          SHCMD("alacritty") },
 +    // FACTOR
 +    { MODKEY,                       XK_l,            setmfact,       {.f = +0.05} },
 +    { MODKEY,                       XK_h,            setmfact,       {.f = -0.05} },
@@ -213,4 +209,13 @@
 +    { ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 +    { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
+
+--- a/config.mk
++++ b/config.mk
+@@ -1,5 +1,5 @@
+ # dwm version
+-VERSION = 6.4
++VERSION = 6.3
+
+ # Customize below to fit your system
 
