@@ -2,7 +2,7 @@
 
 **Welcome to my dwm config!**
 
-❤ Thanks to [suckless.org](https://suckless.org/) to make wonderful programs. ❤️
+❤️ Thanks to [suckless.org](https://suckless.org/) to make wonderful programs. ❤️
 
 ### **Helpers**
 
