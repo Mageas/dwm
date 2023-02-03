@@ -1,7 +1,7 @@
 
 --- a/config.def.h
 +++ b/config.def.h
-@@ -1,115 +1,131 @@
+@@ -1,115 +1,132 @@
  /* See LICENSE file for copyright and license details. */
 
  /* appearance */
@@ -61,6 +61,7 @@
 +    { "firefox",        NULL,          NULL,        1,            0,           0 },
 +    { "revolt-desktop", NULL,          NULL,        1,            0,           1 },
 +    { "discord",        NULL,          NULL,        1 << 1,       0,           1 },
++    { "Element",        NULL,          NULL,        1 << 2,       0,           1 },
 +    { "Pavucontrol",    NULL,          NULL,        0,            1,           -1 },
 +    { "Tor Browser",    NULL,          NULL,        0,            1,           -1 },
  };
