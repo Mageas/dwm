@@ -59,9 +59,9 @@
 +     */
 +    /* class            instance       title        tags mask     isfloating   monitor */
 +    { "firefox",        NULL,          NULL,        1,            0,           0 },
-+    { "revolt-desktop", NULL,          NULL,        1,            0,           1 },
-+    { "discord",        NULL,          NULL,        1 << 1,       0,           1 },
-+    { "Element",        NULL,          NULL,        1 << 2,       0,           1 },
++    { "discord",        NULL,          NULL,        1,            0,           1 },
++    { "Element",        NULL,          NULL,        1 << 1,       0,           1 },
++    { "revolt-desktop", NULL,          NULL,        1 << 2,       0,           1 },
 +    { "Pavucontrol",    NULL,          NULL,        0,            1,           -1 },
 +    { "Tor Browser",    NULL,          NULL,        0,            1,           -1 },
  };
