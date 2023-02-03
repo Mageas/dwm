@@ -1,7 +1,7 @@
 
 --- a/config.def.h
 +++ b/config.def.h
-@@ -1,115 +1,132 @@
+@@ -1,116 +1,132 @@
  /* See LICENSE file for copyright and license details. */
 
  /* appearance */
@@ -101,7 +101,8 @@
  #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
  /* commands */
--static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 -static const char *termcmd[]  = { "st", NULL };
 -
  static const Key keys[] = {
@@ -211,12 +212,14 @@
 +    { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
  };
 
---- a/config.mk
-+++ b/config.mk
-@@ -1,5 +1,5 @@
- # dwm version
--VERSION = 6.4
-+VERSION = 6.3
-
- # Customize below to fit your system
-
+--- a/dwm.c
++++ b/dwm.c
+@@ -1647,8 +1647,6 @@ showhide(Client *c)
+ void
+ spawn(const Arg *arg)
+ {
+-	if (arg->v == dmenucmd)
+-		dmenumon[0] = '0' + selmon->num;
+ 	if (fork() == 0) {
+ 		if (dpy)
+ 			close(ConnectionNumber(dpy));
