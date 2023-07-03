@@ -214,10 +214,10 @@
 
 --- a/dwm.c
 +++ b/dwm.c
-@@ -1647,8 +1647,6 @@ showhide(Client *c)
- void
- spawn(const Arg *arg)
+@@ -1649,8 +1649,6 @@ spawn(const Arg *arg)
  {
+ 	struct sigaction sa;
+
 -	if (arg->v == dmenucmd)
 -		dmenumon[0] = '0' + selmon->num;
  	if (fork() == 0) {
